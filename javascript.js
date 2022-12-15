@@ -1,4 +1,16 @@
-function info(title, author, pages, read) {
+let myLibrary = [];
+
+const addBook = (ev) =>{
+  ev.preventDefault();
+  let book = {
+    id: Date.now();
+    title: document.getElementById('bookTitle'),
+    author: document.getElementById('author'),
+    pages: document.getElementById('')
+  }
+}
+
+  function info(title, author, pages, read) {
     this.title = title
     this.author = author 
     this.pages = pages 
@@ -9,7 +21,6 @@ function info(title, author, pages, read) {
   }
   // let theHobbit = new info('The Hobbit', 'J.R.R. Tolkien', '295', 'not read yet');
   // console.log(theHobbit.returnInfo());
-  let myLibrary = [];
 
 function Book() {
   // the constructor...
