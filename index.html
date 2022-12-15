@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="bookForm">
-        <form>
+        <form id="getFormInfo">
           <div>
             <label for="bookTitle">Book Title:</label>
             <input id="bookTitle" name="bookTitle" type="text" required>
@@ -28,7 +28,7 @@
               <input id="read" name="read" type="text" required>
             </div>
             <div class="submit">
-              <input id="submit" type="submit">
+              <input type="button" onclick="getID();" value="Submit"/>
             </div>
         </form>
       </div>

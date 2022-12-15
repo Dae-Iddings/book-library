@@ -7,9 +7,15 @@ function info(title, author, pages, read) {
       return title + ' by ' + author + ", " + pages + ' pages ' + ', ' + read
     }
   }
-  let theHobbit = new info('The Hobbit', 'J.R.R. Tolkien', '295', 'not read yet');
-  console.log(theHobbit.returnInfo());
-  
+  // let theHobbit = new info('The Hobbit', 'J.R.R. Tolkien', '295', 'not read yet');
+  // console.log(theHobbit.returnInfo());
+  function getID() {
+    var nodes = document.forms["getFormInfo"].querySelectorAll("input[type='text']");
+    var array = [].map.call(nodes, function(item) {
+      return {name : item.name, value : item.value};
+    });
+    console.log(array);
+  }
   let myLibrary = [];
 
 function Book() {
