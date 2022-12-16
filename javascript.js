@@ -3,29 +3,17 @@ let myLibrary = [];
 const addBook = (ev) =>{
   ev.preventDefault();
   let book = {
-    id: Date.now();
-    title: document.getElementById('bookTitle'),
-    author: document.getElementById('author'),
-    pages: document.getElementById('')
+    id: Date.now(),
+    title: document.getElementById('bookTitle').value,
+    author: document.getElementById('author').value,
+    pages: document.getElementById('pages').value,
+    read: document.getElementById('read').value
   }
+  myLibrary.push(book);
+  document.forms[0].reset() // clear form for next entry 
+  //for display purposes only
+  console.log(book);
 }
-
-  function info(title, author, pages, read) {
-    this.title = title
-    this.author = author 
-    this.pages = pages 
-    this.read = read
-    this.returnInfo = function() {
-      return title + ' by ' + author + ", " + pages + ' pages ' + ', ' + read
-    }
-  }
-  // let theHobbit = new info('The Hobbit', 'J.R.R. Tolkien', '295', 'not read yet');
-  // console.log(theHobbit.returnInfo());
-
-function Book() {
-  // the constructor...
-}
-
-function addBookToLibrary() {
-  // do stuff here
-}
+document.addEventListener('DOMContentLoaded', ()=>{
+  document.getElementById('button').addEventListener('click', addBook);
+});
