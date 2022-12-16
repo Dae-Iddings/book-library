@@ -11,7 +11,6 @@ const addBook = (ev) =>{
   }
 }
   let book = {
-    id: Date.now(),
     title: document.getElementById('bookTitle').value,
     author: document.getElementById('author').value,
     pages: document.getElementById('pages').value,
@@ -26,3 +25,29 @@ const addBook = (ev) =>{
 document.addEventListener('DOMContentLoaded', ()=>{
   document.getElementById('button').addEventListener('click', addBook);
 });
+let lfa = {
+  title: 'Looking for Alaska',
+  author: 'John Green',
+  pages: '297',
+  comment: 'my fave',
+  read: 'read'
+}
+myLibrary.push(lfa);
+let tfios = {
+  title: 'The Fault in Our Stars',
+  author: 'John Green',
+  pages: '297',
+  comment: 'its a metaphor',
+  read: 'read'
+}
+myLibrary.push(tfios);
+let bookCardContainer = document.querySelector('.bookCardContainer');
+function displayBooks() {
+  for (let i = 0; i < myLibrary.length; i++) {
+    let bookCard = document.createElement('div');
+    bookCard.classList.add('bookCard');
+    //bookCard.textContent = myLibrary[i].title
+    bookCardContainer.appendChild(bookCard);
+  }
+}
+displayBooks();
