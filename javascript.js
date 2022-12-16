@@ -55,22 +55,22 @@ function displayBooks() {
     //create author dom
     let bookCardAuthor = document.createElement('p');
     bookCardAuthor.textContent = myLibrary[i].author;
-    bookCardTitle.classList.add('bookCardAuthor')
+    bookCardAuthor.classList.add('bookCardAuthor')
     bookCard.appendChild(bookCardAuthor);
     //create pages dom
     let bookCardPages = document.createElement('p')
     bookCardPages.textContent = myLibrary[i].pages;
-    bookCardTitle.classList.add('bookCardPages')
+    bookCardPages.classList.add('bookCardPages')
     bookCard.appendChild(bookCardPages);
     // create comment dom
     let bookCardComment = document.createElement('p');
     bookCardComment.textContent = myLibrary[i].comment;
-    bookCardTitle.classList.add('bookCardComment')
+    bookCardComment.classList.add('bookCardComment')
     bookCard.appendChild(bookCardComment);
     //create read dom
     let bookCardRead = document.createElement('p');
     bookCardRead.textContent = myLibrary[i].read;
-    bookCardTitle.classList.add('bookCardRead')
+    bookCardRead.classList.add('bookCardRead')
     bookCard.appendChild(bookCardRead);
   }
 }
