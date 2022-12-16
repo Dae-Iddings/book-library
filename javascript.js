@@ -46,8 +46,32 @@ function displayBooks() {
   for (let i = 0; i < myLibrary.length; i++) {
     let bookCard = document.createElement('div');
     bookCard.classList.add('bookCard');
-    //bookCard.textContent = myLibrary[i].title
     bookCardContainer.appendChild(bookCard);
+    //create title dom
+    let bookCardTitle = document.createElement('h3');
+    bookCardTitle.textContent = myLibrary[i].title
+    bookCardTitle.classList.add('bookCardTitle')
+    bookCard.appendChild(bookCardTitle)
+    //create author dom
+    let bookCardAuthor = document.createElement('p');
+    bookCardAuthor.textContent = myLibrary[i].author;
+    bookCardTitle.classList.add('bookCardAuthor')
+    bookCard.appendChild(bookCardAuthor);
+    //create pages dom
+    let bookCardPages = document.createElement('p')
+    bookCardPages.textContent = myLibrary[i].pages;
+    bookCardTitle.classList.add('bookCardPages')
+    bookCard.appendChild(bookCardPages);
+    // create comment dom
+    let bookCardComment = document.createElement('p');
+    bookCardComment.textContent = myLibrary[i].comment;
+    bookCardTitle.classList.add('bookCardComment')
+    bookCard.appendChild(bookCardComment);
+    //create read dom
+    let bookCardRead = document.createElement('p');
+    bookCardRead.textContent = myLibrary[i].read;
+    bookCardTitle.classList.add('bookCardRead')
+    bookCard.appendChild(bookCardRead);
   }
 }
 displayBooks();

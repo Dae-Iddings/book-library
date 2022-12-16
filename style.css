@@ -2,4 +2,20 @@
     background-color: lightblue;
     width: 300px;
     height: 200px;
+    text-align: center;
+}
+.bookCardTitle {
+    text-align: center;
+}
+.bookCardAuthor {
+    font-size: medium;
+}
+.bookCardPages {
+    text-align: center;
+}
+.bookCardComment {
+    text-align: center;
+}
+.bookCardRead {
+    text-align: center;
 }
