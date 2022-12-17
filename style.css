@@ -1,21 +1,25 @@
 .bookCard {
-    background-color: lightblue;
-    width: 300px;
-    height: 200px;
+    background-color: #68B0AB;
+    width: 250px;
+    height: 300px;
     text-align: center;
+    padding: 20px;
+    border-radius: 25px;
+    margin: 10px;
 }
 .bookCardTitle {
-    text-align: center;
+    font-size: x-large;
 }
 .bookCardAuthor {
-    font-size: large;
+    font-size: larger;
+    font-style: italic;
 }
 .bookCardPages {
-    text-align: center;
+    font-size: medium;
 }
 .bookCardComment {
-    text-align: center;
+    font-size: large;
 }
 .bookCardRead {
-    text-align: center;
+    font-size: large;
 }
