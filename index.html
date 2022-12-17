@@ -16,28 +16,28 @@
   <button type="button" id="addNewBook" value ="Add Child" onclick="addChild();">Add New Book</button>
   </div>
     <div class="bookForm">
-        <form id="form">
-          <div>
+        <form id="form" class="form">
+          <div class="formDiv">
             <label for="bookTitle">Book Title:</label>
             <input id="bookTitle" name="bookTitle" type="text" placeholder="Looking for Alaska" maxlength="50" required>
           </div>
-          <div>
+          <div class="formDiv">
               <label for="author">Author:</label>
               <input id="author" name="author" type="text" placeholder="John Green" maxlength="50" required>
             </div>
-            <div>
-              <label for="pages">Number of Pages:</label>
+            <div class="formDiv">
+              <label for="pages"># of Pages:</label>
               <input id="pages" name="pages" type="text" placeholder="297" maxlength="50" required>
             </div>
-            <div>
+            <div class="formDiv">
               <label for="comment">Comments?</label>
               <input type="text" name="comment" id="comment" placeholder="My favorite YA book..." maxlength="100">
             </div>
-            <div>
+            <div class="formDiv">
               <label for="read">Have you read it?</label>
-              <input type="checkbox" id="read" name="read">
+              <input type="checkbox" id="read" name="read" class="check">
             </div>
-            <div>
+            <div class="buttonDiv">
               <button type="submit" id="button">Submit</button>
             </div>
         </form>

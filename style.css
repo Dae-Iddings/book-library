@@ -2,16 +2,58 @@
     font-family: 'Atkinson Hyperlegible', sans-serif;
     margin: 0;
 }
-/* #form {
+ #form {
     display: none;
-} */
+} 
+.form {
+    background-color: #61a9de;
+    width: 300px;
+    height: 350px;
+    padding: 20px;
+    box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px rgb(255, 255, 255),
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.3);;
+}
+.bookForm {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+.formDiv {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    font-size: large;
+}
+input {
+    font-size: large;
+}
+#button {
+   font-size: large; 
+   background-color: #61a9de;
+   border: none;
+   text-decoration-line: underline;
+}
+#button:hover {
+    color: white;
+    text-decoration-line: underline;
+    text-decoration-color: white;
+}
+.buttonDiv {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+.check {
+    width: 25px;
+    height: 25px;
+}
 .usersLibrary {
     font-family: 'Passions Conflict', cursive;
     font-size: 50px;
     padding-left: 20px;
 }
 .bookCard {
-    background-color: #68B0AB;
+    background-color: #61a9de;
     width: 250px;
     height: 300px;
     text-align: center;
