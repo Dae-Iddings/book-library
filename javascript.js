@@ -19,8 +19,7 @@ const addBook = (ev) =>{
   }
   myLibrary.push(book);
   document.forms[0].reset() // clear form for next entry 
-  //for display purposes only
-  console.log(book);
+  document.getElementById('form').style.display = 'none' // hides form after submitted
 }
 document.addEventListener('DOMContentLoaded', ()=>{
   document.getElementById('button').addEventListener('click', addBook);
@@ -74,4 +73,7 @@ function displayBooks() {
     bookCard.appendChild(bookCardRead);
   }
 }
-displayBooks();
+// pulls up form 
+function addChild() {
+  document.getElementById('form').style.display = 'block';
+}
