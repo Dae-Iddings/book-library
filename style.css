@@ -1,5 +1,14 @@
-#form {
+* {
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+    margin: 0;
+}
+/* #form {
     display: none;
+} */
+.usersLibrary {
+    font-family: 'Passions Conflict', cursive;
+    font-size: 50px;
+    padding-left: 20px;
 }
 .bookCard {
     background-color: #68B0AB;
@@ -25,4 +34,25 @@
 }
 .bookCardRead {
     font-size: large;
+}
+.header {
+    background-color: #F7A76C;
+    width: 100vw;
+    display: grid;
+    padding: 5px;
+    grid-template-columns: repeat(3, 1fr);
+}
+#addNewBook {
+    width: 150px;
+    height: 40px;
+    justify-self: center;
+    font-size: large;
+    background-color: #F7A76C;
+    border: none;
+    text-decoration-line: underline;
+}
+#addNewBook:hover {
+    text-decoration-line: underline;
+    text-decoration-color: white;
+    color: white;
 }
