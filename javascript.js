@@ -1,5 +1,4 @@
 let myLibrary = [];
-
 const addBook = (ev) =>{
   ev.preventDefault();
   let bookRead = document.getElementById('read')
@@ -20,6 +19,35 @@ const addBook = (ev) =>{
   myLibrary.push(book);
   document.forms[0].reset() // clear form for next entry 
   document.getElementById('form').style.display = 'none' // hides form after submitted
+  // adds book to dom display
+  let bookCard = document.createElement('div');
+    bookCard.classList.add('bookCard');
+    bookCardContainer.appendChild(bookCard);
+    //create title dom
+    let bookCardTitle = document.createElement('h3');
+    bookCardTitle.textContent = book.title
+    bookCardTitle.classList.add('bookCardTitle')
+    bookCard.appendChild(bookCardTitle)
+    //create author dom
+    let bookCardAuthor = document.createElement('p');
+    bookCardAuthor.textContent = book.author;
+    bookCardAuthor.classList.add('bookCardAuthor')
+    bookCard.appendChild(bookCardAuthor);
+    //create pages dom
+    let bookCardPages = document.createElement('p')
+    bookCardPages.textContent = book.pages;
+    bookCardPages.classList.add('bookCardPages')
+    bookCard.appendChild(bookCardPages);
+    // create comment dom
+    let bookCardComment = document.createElement('p');
+    bookCardComment.textContent = book.comment;
+    bookCardComment.classList.add('bookCardComment')
+    bookCard.appendChild(bookCardComment);
+    //create read dom
+    let bookCardRead = document.createElement('p');
+    bookCardRead.textContent = book.read;
+    bookCardRead.classList.add('bookCardRead')
+    bookCard.appendChild(bookCardRead);
 }
 document.addEventListener('DOMContentLoaded', ()=>{
   document.getElementById('button').addEventListener('click', addBook);
@@ -77,3 +105,4 @@ function displayBooks() {
 function addChild() {
   document.getElementById('form').style.display = 'block';
 }
+displayBooks();
