@@ -4,9 +4,9 @@ const addBook = (ev) =>{
   let bookRead = document.getElementById('read')
   function hasRead() {
     if (bookRead.checked == true) {
-    return 'read'
+    return 'Read'
   } else {
-    return 'not read'
+    return 'Not Read'
   }
 }
   let book = {
