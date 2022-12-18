@@ -14,9 +14,9 @@
     0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
 }
 .bookForm {
-    display: flex;
-    justify-content: center;
-    margin-top: 50px;
+    position: absolute;
+    left: 40%;
+    top: 20%;
 }
 .formDiv {
     padding: 10px;
