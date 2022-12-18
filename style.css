@@ -111,7 +111,7 @@ background-color: #C3FF99;
 background-color: #EC7272;
 }
 .removeButton {
-    background-color: #61a9de;
+    background-color: transparent;
     border: none;
     text-decoration-line: underline;
     font-size: large;
