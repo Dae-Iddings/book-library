@@ -125,3 +125,10 @@ function createBookId() {
     myLibrary[i].bookId = i
   }
 }
+const removeButtons = document.querySelectorAll('.removeButton');
+removeButtons.forEach((removeButton) => {
+  removeButton.addEventListener ('click', () => {
+   let removeValue = removeButton.value;
+   myLibrary.splice(removeValue, 1);
+  });
+});
