@@ -50,6 +50,11 @@ const addBook = (ev) =>{
     bookCard.appendChild(bookCardRead);
     //remove button
     createBookId();
+    let removeButton = document.createElement('button');
+    removeButton.textContent = 'Remove';
+    removeButton.classList.add('removeButton');
+    removeButton.value = book.bookId
+    bookCard.appendChild(removeButton); 
 }
 document.addEventListener('DOMContentLoaded', ()=>{
   document.getElementById('button').addEventListener('click', addBook);
@@ -106,6 +111,7 @@ function displayBooks() {
     let removeButton = document.createElement('button');
     removeButton.textContent = 'Remove';
     removeButton.classList.add('removeButton');
+    removeButton.value = i
     bookCard.appendChild(removeButton);
   }
 }
