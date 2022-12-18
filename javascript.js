@@ -14,7 +14,7 @@ const addBook = (ev) =>{
     author: document.getElementById('author').value,
     pages: document.getElementById('pages').value,
     comment: document.getElementById('comment').value,
-    read: hasRead()
+    read: hasRead(), 
   }
   myLibrary.push(book);
   document.forms[0].reset() // clear form for next entry 
@@ -48,6 +48,7 @@ const addBook = (ev) =>{
     bookCardRead.textContent = book.read;
     bookCardRead.classList.add('bookCardRead')
     bookCard.appendChild(bookCardRead);
+    createBookId();
 }
 document.addEventListener('DOMContentLoaded', ()=>{
   document.getElementById('button').addEventListener('click', addBook);
@@ -99,6 +100,7 @@ function displayBooks() {
     bookCardRead.textContent = myLibrary[i].read;
     bookCardRead.classList.add('bookCardRead')
     bookCard.appendChild(bookCardRead);
+    createBookId()
   }
 }
 // pulls up form 
@@ -106,3 +108,8 @@ function addChild() {
   document.getElementById('form').style.display = 'block';
 }
 displayBooks();
+function createBookId() {
+  for (let i =0; i < myLibrary.length; i++) {
+    myLibrary[i].bookId = i
+  }
+}
