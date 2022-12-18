@@ -48,6 +48,7 @@ const addBook = (ev) =>{
     bookCardRead.textContent = book.read;
     bookCardRead.classList.add('bookCardRead')
     bookCard.appendChild(bookCardRead);
+    //remove button
     createBookId();
 }
 document.addEventListener('DOMContentLoaded', ()=>{
@@ -100,7 +101,12 @@ function displayBooks() {
     bookCardRead.textContent = myLibrary[i].read;
     bookCardRead.classList.add('bookCardRead')
     bookCard.appendChild(bookCardRead);
-    createBookId()
+    //remove button
+    createBookId();
+    let removeButton = document.createElement('button');
+    removeButton.textContent = 'Remove';
+    removeButton.classList.add('removeButton');
+    bookCard.appendChild(removeButton);
   }
 }
 // pulls up form 

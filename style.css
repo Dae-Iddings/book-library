@@ -110,3 +110,14 @@ background-color: #C3FF99;
 .hasNotRead {
 background-color: #EC7272;
 }
+.removeButton {
+    background-color: #61a9de;
+    border: none;
+    text-decoration-line: underline;
+    font-size: large;
+}
+.removeButton:hover {
+    text-decoration-line: underline;
+    text-decoration-color: white;
+    color: white;
+}
