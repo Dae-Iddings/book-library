@@ -19,6 +19,7 @@ const addBook = (ev) =>{
   myLibrary.push(book);
   document.forms[0].reset() // clear form for next entry 
   document.getElementById('form').style.display = 'none' // hides form after submitted
+  createBookId();
   // adds book to dom display
   let bookCard = document.createElement('div');
     bookCard.classList.add('bookCard');
@@ -49,7 +50,6 @@ const addBook = (ev) =>{
     bookCardRead.classList.add('bookCardRead')
     bookCard.appendChild(bookCardRead);
     //remove button
-    createBookId();
     let removeButton = document.createElement('button');
     removeButton.textContent = 'Remove';
     removeButton.classList.add('removeButton');
@@ -130,5 +130,7 @@ removeButtons.forEach((removeButton) => {
   removeButton.addEventListener ('click', () => {
    let removeValue = removeButton.value;
    myLibrary.splice(removeValue, 1);
+   let bookCardContainer = document.querySelector('.bookCardContainer');
+   displayBooks();
   });
 });
