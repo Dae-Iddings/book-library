@@ -20,41 +20,11 @@ const addBook = (ev) =>{
   document.forms[0].reset() // clear form for next entry 
   document.getElementById('form').style.display = 'none' // hides form after submitted
   createBookId();
-  // adds book to dom display
-  let bookCard = document.createElement('div');
-    bookCard.classList.add('bookCard');
-    bookCardContainer.appendChild(bookCard);
-    //create title dom
-    let bookCardTitle = document.createElement('h3');
-    bookCardTitle.textContent = book.title
-    bookCardTitle.classList.add('bookCardTitle')
-    bookCard.appendChild(bookCardTitle)
-    //create author dom
-    let bookCardAuthor = document.createElement('p');
-    bookCardAuthor.textContent = book.author;
-    bookCardAuthor.classList.add('bookCardAuthor')
-    bookCard.appendChild(bookCardAuthor);
-    //create pages dom
-    let bookCardPages = document.createElement('p')
-    bookCardPages.textContent = book.pages;
-    bookCardPages.classList.add('bookCardPages')
-    bookCard.appendChild(bookCardPages);
-    // create comment dom
-    let bookCardComment = document.createElement('p');
-    bookCardComment.textContent = book.comment;
-    bookCardComment.classList.add('bookCardComment')
-    bookCard.appendChild(bookCardComment);
-    //create read dom
-    let bookCardRead = document.createElement('p');
-    bookCardRead.textContent = book.read;
-    bookCardRead.classList.add('bookCardRead')
-    bookCard.appendChild(bookCardRead);
-    //remove button
-    let removeButton = document.createElement('button');
-    removeButton.textContent = 'Remove';
-    removeButton.classList.add('removeButton');
-    removeButton.value = book.bookId
-    bookCard.appendChild(removeButton); 
+  let bookId = book.bookId
+  console.log(bookId)
+  console.log(myLibrary);
+  removeAllBooks();
+  displayBooks();
 }
 document.addEventListener('DOMContentLoaded', ()=>{
   document.getElementById('button').addEventListener('click', addBook);
@@ -120,6 +90,19 @@ function displayBooks() {
     removeButton.setAttribute('id', 'removeButton' + i)
     removeButton.value = i
     bookCard.appendChild(removeButton);
+    //remove button clickable 
+    const removeButtons = document.querySelectorAll('.removeButton');
+removeButtons.forEach((removeButton) => {
+  removeButton.addEventListener ('click', () => { 
+   let removeValue = removeButton.value
+   if (myLibrary.length == 1) {
+    let myLibrary = [];
+   } else {
+    myLibrary.splice(removeValue, 1);
+   }
+   removeBook(removeValue);
+  });
+});
   }
 }
 // pulls up form 
@@ -132,18 +115,6 @@ function createBookId() {
     myLibrary[i].bookId = i
   }
 }
-const removeButtons = document.querySelectorAll('.removeButton');
-removeButtons.forEach((removeButton) => {
-  removeButton.addEventListener ('click', () => { 
-   let removeValue = removeButton.value
-   if (myLibrary.length == 1) {
-    let myLibrary = [];
-   } else {
-    myLibrary.splice(removeValue, 1);
-   }
-   removeBook(removeValue);
-  });
-});
 function removeBook(removeValue) {
     const bookCard = document.getElementById('bookCard' + removeValue);
     const bookCardTitle = document.getElementById('bookCardTitle' + removeValue);
@@ -160,4 +131,9 @@ function removeBook(removeValue) {
     bookCard.removeChild(bookCardRead);
     bookCard.removeChild(removeButton);
     bookCardContainer.removeChild(bookCard);
+}
+function removeAllBooks() {
+  for (let i = 0; i < myLibrary.length - 1; i++) {
+    removeBook(i);
+  }
 }
