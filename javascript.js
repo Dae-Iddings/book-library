@@ -80,43 +80,44 @@ function displayBooks() {
   for (let i = 0; i < myLibrary.length; i++) {
     let bookCard = document.createElement('div');
     bookCard.classList.add('bookCard');
-    bookCard.value = i
+    bookCard.setAttribute('id', 'bookCard' + i);
     bookCardContainer.appendChild(bookCard);
     //create title dom
     let bookCardTitle = document.createElement('h3');
     bookCardTitle.textContent = myLibrary[i].title
-    bookCardTitle.classList.add('bookCardTitle')
-    bookCardTitle.value = i;
-    bookCard.appendChild(bookCardTitle)
+    bookCardTitle.classList.add('bookCardTitle');
+    bookCardTitle.setAttribute('id', 'bookCardTitle' + i);
+    bookCard.appendChild(bookCardTitle);
     //create author dom
     let bookCardAuthor = document.createElement('p');
     bookCardAuthor.textContent = myLibrary[i].author;
-    bookCardAuthor.classList.add('bookCardAuthor')
-    bookCardAuthor.value = i;
+    bookCardAuthor.classList.add('bookCardAuthor');
+    bookCardAuthor.setAttribute('id', 'bookCardAuthor' + i);
     bookCard.appendChild(bookCardAuthor);
     //create pages dom
     let bookCardPages = document.createElement('p')
     bookCardPages.textContent = myLibrary[i].pages;
-    bookCardPages.classList.add('bookCardPages')
-    bookCardPages.value = i;
+    bookCardPages.classList.add('bookCardPages');
+    bookCardPages.setAttribute('id', 'bookCardPages' + i)
     bookCard.appendChild(bookCardPages);
     // create comment dom
     let bookCardComment = document.createElement('p');
     bookCardComment.textContent = myLibrary[i].comment;
-    bookCardComment.classList.add('bookCardComment')
-    bookCardComment.value = i;
+    bookCardComment.classList.add('bookCardComment');
+    bookCardComment.setAttribute('id', 'bookCardComment' + i);
     bookCard.appendChild(bookCardComment);
     //create read dom
     let bookCardRead = document.createElement('p');
     bookCardRead.textContent = myLibrary[i].read;
-    bookCardRead.classList.add('bookCardRead')
-    bookCardRead.value = i;
+    bookCardRead.classList.add('bookCardRead');
+    bookCardRead.setAttribute('id', 'bookCardRead' + i);
     bookCard.appendChild(bookCardRead);
     //remove button
     createBookId();
     let removeButton = document.createElement('button');
     removeButton.textContent = 'Remove';
     removeButton.classList.add('removeButton');
+    bookCard.setAttribute('id', 'bookCard' + i)
     removeButton.value = i
     bookCard.appendChild(removeButton);
   }
@@ -133,23 +134,25 @@ function createBookId() {
 }
 const removeButtons = document.querySelectorAll('.removeButton');
 removeButtons.forEach((removeButton) => {
-  removeButton.addEventListener ('click', () => {
-    RemoveAllBooks();
-    let removeValue = removeButton.value;
-   myLibrary.splice(removeValue, 1);
-   displayBooks();
+  removeButton.addEventListener ('click', () => { 
+   let removeValue = removeButton.value
+   if (myLibrary.length == 1) {
+    let myLibrary = [];
+   } else {
+    myLibrary.splice(removeValue, 1);
+   }
   });
 });
-function RemoveAllBooks() {
-  for (let i = 0; i < myLibrary.length; i++) {
+function removeBook() {
+  const removeValue = removeButton.value
     const bookCardContainer = document.querySelector('.bookCardContainer');
-    const bookCard = document.querySelector('.bookCard');
-    const bookCardTitle = document.querySelector('.bookCardTitle');
-    const bookCardAuthor = document.querySelector('.bookCardAuthor');
-    const bookCardPages = document.querySelector('.bookCardPages');
-    const bookCardComment = document.querySelector('.bookCardComment');
-    const bookCardRead = document.querySelector('.bookCardRead');
-    const removeButton = document.querySelector('.removeButton')
+    const bookCard = document.getElementById('.bookCard' + removeValue);
+    const bookCardTitle = document.getElementById('.bookCardTitle' + removeValue);
+    const bookCardAuthor = document.getElementById('.bookCardAuthor' + removeValue);
+    const bookCardPages = document.getElementById('.bookCardPages' + removeValue);
+    const bookCardComment = document.getElementById('.bookCardComment' + removeValue);
+    const bookCardRead = document.getElementById('.bookCardRead' + removeValue);
+    const removeButton = document.getElementById('.removeButton' + removeValue)
     bookCard.removeChild(bookCardTitle);
     bookCard.removeChild(bookCardAuthor);
     bookCard.removeChild(bookCardPages);
@@ -157,5 +160,4 @@ function RemoveAllBooks() {
     bookCard.removeChild(bookCardRead);
     bookCard.removeChild(removeButton);
     bookCardContainer.removeChild(bookCard);
-  }
 }
