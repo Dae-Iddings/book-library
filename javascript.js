@@ -80,31 +80,37 @@ function displayBooks() {
   for (let i = 0; i < myLibrary.length; i++) {
     let bookCard = document.createElement('div');
     bookCard.classList.add('bookCard');
+    bookCard.value = i
     bookCardContainer.appendChild(bookCard);
     //create title dom
     let bookCardTitle = document.createElement('h3');
     bookCardTitle.textContent = myLibrary[i].title
     bookCardTitle.classList.add('bookCardTitle')
+    bookCardTitle.value = i;
     bookCard.appendChild(bookCardTitle)
     //create author dom
     let bookCardAuthor = document.createElement('p');
     bookCardAuthor.textContent = myLibrary[i].author;
     bookCardAuthor.classList.add('bookCardAuthor')
+    bookCardAuthor.value = i;
     bookCard.appendChild(bookCardAuthor);
     //create pages dom
     let bookCardPages = document.createElement('p')
     bookCardPages.textContent = myLibrary[i].pages;
     bookCardPages.classList.add('bookCardPages')
+    bookCardPages.value = i;
     bookCard.appendChild(bookCardPages);
     // create comment dom
     let bookCardComment = document.createElement('p');
     bookCardComment.textContent = myLibrary[i].comment;
     bookCardComment.classList.add('bookCardComment')
+    bookCardComment.value = i;
     bookCard.appendChild(bookCardComment);
     //create read dom
     let bookCardRead = document.createElement('p');
     bookCardRead.textContent = myLibrary[i].read;
     bookCardRead.classList.add('bookCardRead')
+    bookCardRead.value = i;
     bookCard.appendChild(bookCardRead);
     //remove button
     createBookId();
@@ -128,9 +134,28 @@ function createBookId() {
 const removeButtons = document.querySelectorAll('.removeButton');
 removeButtons.forEach((removeButton) => {
   removeButton.addEventListener ('click', () => {
-   let removeValue = removeButton.value;
+    RemoveAllBooks();
+    let removeValue = removeButton.value;
    myLibrary.splice(removeValue, 1);
-   let bookCardContainer = document.querySelector('.bookCardContainer');
    displayBooks();
   });
 });
+function RemoveAllBooks() {
+  for (let i = 0; i < myLibrary.length; i++) {
+    const bookCardContainer = document.querySelector('.bookCardContainer');
+    const bookCard = document.querySelector('.bookCard');
+    const bookCardTitle = document.querySelector('.bookCardTitle');
+    const bookCardAuthor = document.querySelector('.bookCardAuthor');
+    const bookCardPages = document.querySelector('.bookCardPages');
+    const bookCardComment = document.querySelector('.bookCardComment');
+    const bookCardRead = document.querySelector('.bookCardRead');
+    const removeButton = document.querySelector('.removeButton')
+    bookCard.removeChild(bookCardTitle);
+    bookCard.removeChild(bookCardAuthor);
+    bookCard.removeChild(bookCardPages);
+    bookCard.removeChild(bookCardComment);
+    bookCard.removeChild(bookCardRead);
+    bookCard.removeChild(removeButton);
+    bookCardContainer.removeChild(bookCard);
+  }
+}
