@@ -117,7 +117,7 @@ function displayBooks() {
     let removeButton = document.createElement('button');
     removeButton.textContent = 'Remove';
     removeButton.classList.add('removeButton');
-    bookCard.setAttribute('id', 'bookCard' + i)
+    removeButton.setAttribute('id', 'removeButton' + i)
     removeButton.value = i
     bookCard.appendChild(removeButton);
   }
@@ -141,18 +141,18 @@ removeButtons.forEach((removeButton) => {
    } else {
     myLibrary.splice(removeValue, 1);
    }
+   removeBook(removeValue);
   });
 });
-function removeBook() {
-  const removeValue = removeButton.value
-    const bookCardContainer = document.querySelector('.bookCardContainer');
-    const bookCard = document.getElementById('.bookCard' + removeValue);
-    const bookCardTitle = document.getElementById('.bookCardTitle' + removeValue);
-    const bookCardAuthor = document.getElementById('.bookCardAuthor' + removeValue);
-    const bookCardPages = document.getElementById('.bookCardPages' + removeValue);
-    const bookCardComment = document.getElementById('.bookCardComment' + removeValue);
-    const bookCardRead = document.getElementById('.bookCardRead' + removeValue);
-    const removeButton = document.getElementById('.removeButton' + removeValue)
+function removeBook(removeValue) {
+    const bookCard = document.getElementById('bookCard' + removeValue);
+    const bookCardTitle = document.getElementById('bookCardTitle' + removeValue);
+    const bookCardAuthor = document.getElementById('bookCardAuthor' + removeValue);
+    const bookCardPages = document.getElementById('bookCardPages' + removeValue);
+    const bookCardComment = document.getElementById('bookCardComment' + removeValue);
+    const bookCardRead = document.getElementById('bookCardRead' + removeValue);
+    const removeButton = document.getElementById('removeButton' + removeValue);
+    let bookCardContainer = document.querySelector('.bookCardContainer');
     bookCard.removeChild(bookCardTitle);
     bookCard.removeChild(bookCardAuthor);
     bookCard.removeChild(bookCardPages);
