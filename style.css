@@ -121,3 +121,8 @@ background-color: #EC7272;
     text-decoration-color: white;
     color: white;
 }
+.bookCardContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 300px);
+    gap: 20px;
+}

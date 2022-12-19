@@ -34,7 +34,7 @@ let lfa = {
   author: 'John Green',
   pages: '297',
   comment: 'my fave',
-  read: 'read'
+  read: 'Read'
 }
 myLibrary.push(lfa);
 let tfios = {
@@ -42,7 +42,7 @@ let tfios = {
   author: 'John Green',
   pages: '297',
   comment: 'its a metaphor',
-  read: 'read'
+  read: 'Read'
 }
 myLibrary.push(tfios);
 let bookCardContainer = document.querySelector('.bookCardContainer');
