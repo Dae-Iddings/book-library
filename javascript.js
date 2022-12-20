@@ -23,8 +23,12 @@ const addBook = (ev) =>{
   let bookId = book.bookId
   console.log(bookId)
   console.log(myLibrary);
+  if (myLibrary.length == 1) {
+    displayBooks();
+  } else {
   removeAllBooks();
   displayBooks();
+  }
 }
 document.addEventListener('DOMContentLoaded', ()=>{
   document.getElementById('button').addEventListener('click', addBook);
@@ -103,7 +107,7 @@ function displayBooks() {
 removeButtons.forEach((removeButton) => {
   removeButton.addEventListener ('click', () => { 
    let removeValue = removeButton.value
-   if (myLibrary.length == 1) {
+   if (myLibrary.length == 0) {
     let myLibrary = [];
    } else {
     myLibrary.splice(removeValue, 1);
@@ -156,15 +160,15 @@ function removeAllBooks() {
 function changeReadStatus(changeValue) {
 let readButton = document.getElementById('bookCardRead' + changeValue);
 if (myLibrary[changeValue].read == 'Read') {
-  //readButton.classList.add('hasNotRead')
-  //readButton.textContent = 'Has Not Read'
-  //readButton.classList.remove('hasRead')
+  readButton.classList.add('hasNotRead')
+  readButton.textContent = 'Has Not Read'
+  readButton.classList.remove('hasRead')
   myLibrary[changeValue].read = 'Not Read'
   console.log(myLibrary[changeValue].read)
-} else {
-  //readButton.classList.add('hasRead')
-  //readButton.textContent = 'Read'
-  //readButton.classList.remove('hasNotRead')
+} else if (myLibrary[changeValue].read == 'Not Read') {
+  readButton.classList.add('hasRead')
+  readButton.textContent = 'Read'
+  readButton.classList.remove('hasNotRead')
   myLibrary[changeValue].read = 'Read'
   console.log(myLibrary[changeValue].read)
 }
