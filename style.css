@@ -65,23 +65,26 @@ input {
     overflow-wrap: break-word;
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 20px;
 }
 .bookCardTitle {
     font-size: x-large;
 }
 .bookCardAuthor {
-    font-size: larger;
+    font-size: large;
     font-style: italic;
 }
 .bookCardPages {
     font-size: medium;
 }
 .bookCardComment {
-    font-size: large;
+    font-size: medium;
+    overflow: scroll;
 }
 .bookCardRead {
     font-size: large;
+    height: 35px;
+
 }
 .header {
     background-color: #F7A76C;
