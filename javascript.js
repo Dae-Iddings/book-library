@@ -77,11 +77,19 @@ function displayBooks() {
     bookCardComment.setAttribute('id', 'bookCardComment' + i);
     bookCard.appendChild(bookCardComment);
     //create read dom
-    let bookCardRead = document.createElement('p');
+    let bookCardRead = document.createElement('button');
     bookCardRead.textContent = myLibrary[i].read;
     bookCardRead.classList.add('bookCardRead');
     bookCardRead.setAttribute('id', 'bookCardRead' + i);
     bookCard.appendChild(bookCardRead);
+    if (myLibrary[i].read == 'Read') {
+      bookCardRead.classList.add('hasRead')
+      bookCardRead.textContent = 'Read'
+    } else {
+      bookCardRead.classList.add('hasNotRead')
+      bookCardRead.textContent = 'Has Not Read'
+    }
+    bookCardRead.value = i;
     //remove button
     createBookId();
     let removeButton = document.createElement('button');
@@ -101,6 +109,14 @@ removeButtons.forEach((removeButton) => {
     myLibrary.splice(removeValue, 1);
    }
    removeBook(removeValue);
+  });
+});
+//event listener for read button
+const readButtons = document.querySelectorAll('.bookCardRead')
+readButtons.forEach((readButton) => {
+  readButton.addEventListener ('click', () => {
+    let changeValue = readButton.value
+    changeReadStatus(changeValue);
   });
 });
   }
@@ -136,4 +152,20 @@ function removeAllBooks() {
   for (let i = 0; i < myLibrary.length - 1; i++) {
     removeBook(i);
   }
+}
+function changeReadStatus(changeValue) {
+let readButton = document.getElementById('bookCardRead' + changeValue);
+if (myLibrary[changeValue].read == 'Read') {
+  //readButton.classList.add('hasNotRead')
+  //readButton.textContent = 'Has Not Read'
+  //readButton.classList.remove('hasRead')
+  myLibrary[changeValue].read = 'Not Read'
+  console.log(myLibrary[changeValue].read)
+} else {
+  //readButton.classList.add('hasRead')
+  //readButton.textContent = 'Read'
+  //readButton.classList.remove('hasNotRead')
+  myLibrary[changeValue].read = 'Read'
+  console.log(myLibrary[changeValue].read)
+}
 }
