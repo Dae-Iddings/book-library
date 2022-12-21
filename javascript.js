@@ -37,22 +37,7 @@ const addBook = (ev) =>{
 document.addEventListener('DOMContentLoaded', ()=>{
   document.getElementById('button').addEventListener('click', addBook);
 });
-let lfa = {
-  title: 'Looking for Alaska',
-  author: 'John Green',
-  pages: '297',
-  comment: 'my fave',
-  read: true
-}
-myLibrary.push(lfa);
-let tfios = {
-  title: 'The Fault in Our Stars',
-  author: 'John Green',
-  pages: '297',
-  comment: 'its a metaphor',
-  read: false
-}
-myLibrary.push(tfios);
+
 let bookCardContainer = document.querySelector('.bookCardContainer');
 function displayBooks() {
   for (let i = 0; i < myLibrary.length; i++) {
