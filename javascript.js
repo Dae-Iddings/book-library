@@ -165,19 +165,17 @@ function removeAllBooks() {
 }
 function changeReadStatus(changeValue) {
 let readButton = document.getElementById('bookCardRead' + changeValue);
-if (myLibrary[changeValue].read = true) {
+if (myLibrary[changeValue].read == true) {
   readButton.classList.remove('hasRead')
   readButton.classList.add('hasNotRead')
   readButton.textContent = 'Has Not Read'
-  delete myLibrary[changeValue].read
-  myLibrary[changeValue].read = 'Not Read'
+  myLibrary[changeValue].read = false
   console.log(myLibrary)
-} else {
+} else if (myLibrary[changeValue].read == false) {
   readButton.classList.remove('hasNotRead')
   readButton.classList.add('hasRead')
   readButton.textContent = 'Read'
-  delete myLibrary[changeValue].read
-  myLibrary[changeValue].read = 'Read'
+  myLibrary[changeValue].read = true
   console.log(myLibrary)
 }
 }
