@@ -1,27 +1,31 @@
 let myLibrary = [];
+function Book(title, author, pages, comment, read) {
+	this.title = title;
+	this.author = author;
+	this.pages = pages;
+  this.comment = comment;
+	this.read = read;
+}
 const addBook = (ev) =>{
   ev.preventDefault();
   let bookRead = document.getElementById('read')
   function hasRead() {
     if (bookRead.checked == true) {
-    return 'Read'
+    return true
   } else {
-    return 'Not Read'
+    return false
   }
 }
-  let book = {
-    title: document.getElementById('bookTitle').value,
-    author: document.getElementById('author').value,
-    pages: document.getElementById('pages').value,
-    comment: document.getElementById('comment').value,
-    read: hasRead(), 
-  }
-  myLibrary.push(book);
+  let newBook = new Book (document.getElementById('bookTitle').value, 
+    document.getElementById('author').value,  
+    document.getElementById('pages').value, 
+    document.getElementById('comment').value, 
+    hasRead())
+    //add new book to library
+  myLibrary.push(newBook);
   document.forms[0].reset() // clear form for next entry 
   document.getElementById('form').style.display = 'none' // hides form after submitted
   createBookId();
-  let bookId = book.bookId
-  console.log(bookId)
   console.log(myLibrary);
   if (myLibrary.length == 1) {
     displayBooks();
@@ -38,7 +42,7 @@ let lfa = {
   author: 'John Green',
   pages: '297',
   comment: 'my fave',
-  read: 'Read'
+  read: true
 }
 myLibrary.push(lfa);
 let tfios = {
@@ -46,7 +50,7 @@ let tfios = {
   author: 'John Green',
   pages: '297',
   comment: 'its a metaphor',
-  read: 'Read'
+  read: false
 }
 myLibrary.push(tfios);
 let bookCardContainer = document.querySelector('.bookCardContainer');
@@ -86,7 +90,7 @@ function displayBooks() {
     bookCardRead.classList.add('bookCardRead');
     bookCardRead.setAttribute('id', 'bookCardRead' + i);
     bookCard.appendChild(bookCardRead);
-    if (myLibrary[i].read == 'Read') {
+    if (myLibrary[i].read == true) {
       bookCardRead.classList.add('hasRead')
       bookCardRead.textContent = 'Read'
     } else {
@@ -116,6 +120,8 @@ removeButtons.forEach((removeButton) => {
   });
 });
 //event listener for read button
+
+  }
 const readButtons = document.querySelectorAll('.bookCardRead')
 readButtons.forEach((readButton) => {
   readButton.addEventListener ('click', () => {
@@ -123,8 +129,8 @@ readButtons.forEach((readButton) => {
     changeReadStatus(changeValue);
   });
 });
-  }
 }
+
 // pulls up form 
 function addChild() {
   document.getElementById('form').style.display = 'block';
@@ -159,17 +165,19 @@ function removeAllBooks() {
 }
 function changeReadStatus(changeValue) {
 let readButton = document.getElementById('bookCardRead' + changeValue);
-if (myLibrary[changeValue].read == 'Read') {
+if (myLibrary[changeValue].read = true) {
+  readButton.classList.remove('hasRead')
   readButton.classList.add('hasNotRead')
   readButton.textContent = 'Has Not Read'
-  readButton.classList.remove('hasRead')
+  delete myLibrary[changeValue].read
   myLibrary[changeValue].read = 'Not Read'
-  console.log(myLibrary[changeValue].read)
-} else if (myLibrary[changeValue].read == 'Not Read') {
+  console.log(myLibrary)
+} else {
+  readButton.classList.remove('hasNotRead')
   readButton.classList.add('hasRead')
   readButton.textContent = 'Read'
-  readButton.classList.remove('hasNotRead')
+  delete myLibrary[changeValue].read
   myLibrary[changeValue].read = 'Read'
-  console.log(myLibrary[changeValue].read)
+  console.log(myLibrary)
 }
 }
